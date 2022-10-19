@@ -11,14 +11,14 @@ router.get('/', async (req, res) => {
             include: [Product]
         });
         //terenary operator returning 404 if data returns null/empty and 200 if data is present
-        categoryData ? res.status(200).json(categoryData) : res.status(404).json({message: 'No data found!'});
-        
+        categoryData ? res.status(200).json(categoryData) : res.status(404).json({ message: 'No data found!' });
+
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-router.get('/:id', async(req, res) => {
+router.get('/:id', async (req, res) => {
     // find one category by its `id` value
     // be sure to include its associated Products
     try {
@@ -26,8 +26,8 @@ router.get('/:id', async(req, res) => {
             include: [Product]
         });
         //terenary operator returning 404 if data returns null/empty and 200 if data is present
-        categoryData ? res.status(200).json(categoryData) : res.status(404).json({message: 'No data found!'});
-        
+        categoryData ? res.status(200).json(categoryData) : res.status(404).json({ message: 'No data found!' });
+
     } catch (err) {
         res.status(400).json(err);
     }
@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
         }
         const categoryData = await Category.create(newCategory);
         res.status(200).json(categoryData);
-        
+
     } catch (err) {
         res.status(400).json(err);
     }
@@ -57,8 +57,8 @@ router.put('/:id', async (req, res) => {
             where: { id: req.params.id }
         });
         //terenary operator returning 404 if data returns null/empty and 200 if data is present
-        categoryData ? res.status(200).json(categoryData) : res.status(404).json({message: 'No data found!'});
-        
+        categoryData ? res.status(200).json(categoryData) : res.status(404).json({ message: 'No data found!' });
+
     } catch (err) {
         res.status(400).json(err);
     }
@@ -71,8 +71,8 @@ router.delete('/:id', async (req, res) => {
             where: { id: req.params.id }
         });
         //terenary operator returning 404 if data returns null/empty and 200 if data is present
-        categoryData ? res.status(200).json(categoryData) : res.status(404).json({message: 'No data found!'});
-        
+        categoryData ? res.status(200).json(categoryData) : res.status(404).json({ message: 'No data found!' });
+
     } catch (err) {
         res.status(400).json(err);
     }
