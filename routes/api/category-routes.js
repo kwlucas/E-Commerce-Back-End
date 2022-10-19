@@ -18,9 +18,19 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async(req, res) => {
     // find one category by its `id` value
     // be sure to include its associated Products
+    try {
+        const categoryData = await Category.findByPk(req.params.id, {
+            include: [Product]
+        });
+        //terenary operator returning 404 if data returns null/empty and 200 if data is present
+        categoryData ? res.status(200).json(categoryData) : res.status(404).json({message: 'No data found!'});
+        
+    } catch (err) {
+        res.status(400).json(err);
+    }
 });
 
 router.post('/', (req, res) => {
