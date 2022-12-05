@@ -67,7 +67,7 @@ A complete API for accessing an SQL database designed for an e-commerce site wit
 
 Run ```npm start``` in the console to start the application (If running locally).
 
-Send requests to the API endpoints using your prefered method.
+Send requests to the API endpoints using your preferred method.
 
 GET "/api/categories" will return information on all the categories including the products within them.
 
