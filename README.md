@@ -144,6 +144,24 @@ DELETE "/api/tags/ID_NUMBER" will delete the data of the tag with the specified 
 
 ![Demo Gif](./assets/images/Demo5.gif)
 
+### Database Chart
+
+
+ | **Table**       | **Column**        | **Data Type** | **Constraints**                                   | 
+|------------------|-------------------|---------------|--------------------------------------------------|
+| **Category**     | `id`             | Integer       | Primary key, Auto increment, Not null           |
+|                  | `category_name`  | String        | Not null                                        |
+| **Product**      | `id`             | Integer       | Primary key, Auto increment, Not null           |
+|                  | `product_name`   | String        | Not null                                        |
+|                  | `price`          | Decimal       | Not null, Must be a decimal                     |
+|                  | `stock`          | Integer       | Not null, Default value = 10, Must be numeric   |
+|                  | `category_id`    | Integer       | References `Category.id`                        |
+| **Tag**          | `id`             | Integer       | Primary key, Auto increment, Not null           |
+|                  | `tag_name`       | String        |                                                  |
+| **ProductTag**   | `id`             | Integer       | Primary key, Auto increment, Not null           |
+|                  | `product_id`     | Integer       | References `Product.id`                         |
+|                  | `tag_id`         | Integer       | References `Tag.id`                             |
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
